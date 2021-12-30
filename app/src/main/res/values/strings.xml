@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">CampFire</string>
+    <string name="edittext_email_hint">E-mail</string>
+    <string name="edittext_password_hint">Password</string>
+    <string name="button_signup_text">Sign Up</string>
+    <string name="button_login_text">Log In</string>
+    <string name="edittext_name_hint">Name</string>
+    <string name="content_description_app_logo">App Logo</string>
+    <string name="already_have_account">Already have an account? <a>Log in</a></string>
+    <string name="do_not_have_account">Don\'t have an account? <a>Sign Up</a></string>
+</resources>
