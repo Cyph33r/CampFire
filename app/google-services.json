@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "463297288800",
+    "project_id": "campfire-cypher",
+    "storage_bucket": "campfire-cypher.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:463297288800:android:ee305d1d306f0b20714105",
+        "android_client_info": {
+          "package_name": "com.cyphertech.games.campfire"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "463297288800-ofcqn8uujdddteta27chr0n0ef0v83bq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlc-R1eEAKVh5MtzdKmmricpoakzR2wVk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "463297288800-ofcqn8uujdddteta27chr0n0ef0v83bq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CampFire">
         <activity
-            android:name=".SignUp"
+            android:name=".activities.signup.SignUp"
             android:exported="false" />
         <activity
-            android:name=".LogIn"
+            android:name=".activities.login.LogIn"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.main.MainActivity"
             android:exported="false" />
     </application>
 
