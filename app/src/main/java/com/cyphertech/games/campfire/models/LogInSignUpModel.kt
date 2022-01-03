@@ -1,4 +1,4 @@
-package models
+package com.cyphertech.games.campfire.models
 
 import androidx.lifecycle.ViewModel
 

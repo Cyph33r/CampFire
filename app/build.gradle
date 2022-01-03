@@ -15,7 +15,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-    viewBinding{
+    viewBinding {
         enabled true
     }
 
@@ -48,6 +48,7 @@ dependencies {
 
     implementation platform('com.google.firebase:firebase-bom:29.0.3')
     implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-firestore-ktx'
 }
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'

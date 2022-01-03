@@ -7,13 +7,12 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.lifecycle.ViewModel
 import com.cyphertech.games.campfire.activities.login.LogIn
 import com.cyphertech.games.campfire.activities.main.MainActivity
 import com.cyphertech.games.campfire.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
-import models.LogInSignUpModel
+import com.cyphertech.games.campfire.models.LogInSignUpModel
 
 class SignUp : AppCompatActivity() {
     private val TAG = this::class.simpleName
@@ -24,7 +23,12 @@ class SignUp : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         _signUpBinding = ActivitySignUpBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide()
         mAuth = FirebaseAuth.getInstance()
+        if(mAuth.currentUser != null){
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
         signUpBinding.textviewHaveAccount.setOnClickListener {
             val logInIntent = Intent(this, LogIn::class.java)
             startActivity(logInIntent)

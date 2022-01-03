@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbars="vertical"
     tools:context=".activities.signup.SignUp">
 
     <ImageView
@@ -16,13 +17,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.06999999" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/edittext_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/edittext_outline"
         android:ems="10"
         android:hint="@string/edittext_email_hint"
@@ -30,7 +31,7 @@
         android:minHeight="48dp"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
-        android:text="@string/edittext_name_hint"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
@@ -40,25 +41,24 @@
         android:id="@+id/edittext_email_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:background="@drawable/edittext_outline"
         android:ems="10"
-        android:hint="@string/edittext_email_hint"
+        android:hint="@string/edittext_name_hint"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
+        android:textSize="22sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_logo"
-        tools:text="tadeajai4@gmail.com" />
+        app:layout_constraintTop_toTopOf="@+id/edittext_name" />
 
     <EditText
         android:id="@+id/edittext_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/edittext_outline"
         android:ems="10"
         android:hint="@string/edittext_password_hint"
@@ -66,6 +66,7 @@
         android:minHeight="48dp"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edittext_email_address" />
@@ -73,7 +74,7 @@
     <Button
         android:id="@+id/button_sign_up"
         style="@style/ButtonStyle"
-        android:layout_width="120dp"
+        android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/button_outline"

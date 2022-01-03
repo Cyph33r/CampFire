@@ -3,7 +3,6 @@ package com.cyphertech.games.campfire.activities.login
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
 import android.util.Log
 import android.view.View
 import android.widget.EditText
@@ -14,7 +13,7 @@ import com.cyphertech.games.campfire.activities.signup.SignUp
 import com.cyphertech.games.campfire.databinding.ActivityLogInBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import models.LogInSignUpModel
+import com.cyphertech.games.campfire.models.LogInSignUpModel
 
 class LogIn : AppCompatActivity() {
     private val TAG = LogIn::class.simpleName
@@ -26,17 +25,20 @@ class LogIn : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         _logInBinding = ActivityLogInBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide()
         mAuth = FirebaseAuth.getInstance()
+        if(mAuth.currentUser != null){
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
         logInBinding.textviewNoAccount.setOnClickListener {
             val signInIntent = Intent(this, SignUp::class.java)
             startActivity(signInIntent)
         }
-        logInBinding.edittextEmailAddress.setOnFocusChangeListener { view, hasFocus ->
-            if (hasFocus) return@setOnFocusChangeListener
+        logInBinding.edittextEmailAddress.setOnFocusChangeListener { view, _ ->
             logInSignUpModel.logInEmail = (view as EditText).text.toString()
         }
-        logInBinding.edittextPassword.setOnFocusChangeListener { view, hasFocus ->
-            if (hasFocus) return@setOnFocusChangeListener
+        logInBinding.edittextPassword.setOnFocusChangeListener { view, _ ->
             logInSignUpModel.logInPassword = (view as EditText).text.toString()
         }
         logInBinding.buttonSignUp.setOnClickListener(::login)
