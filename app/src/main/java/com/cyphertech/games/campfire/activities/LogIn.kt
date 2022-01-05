@@ -1,4 +1,4 @@
-package com.cyphertech.games.campfire.activities.login
+package com.cyphertech.games.campfire.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,8 +8,6 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.viewModels
-import com.cyphertech.games.campfire.activities.main.MainActivity
-import com.cyphertech.games.campfire.activities.signup.SignUp
 import com.cyphertech.games.campfire.databinding.ActivityLogInBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -63,6 +61,7 @@ class LogIn : AppCompatActivity() {
                     updateUI(user)
                 } else {
                     // If sign in fails, display a message to the user.
+
                     Log.w(TAG, "signInWithEmail:failure", task.exception)
                     Toast.makeText(
                         baseContext, "Authentication failed.",

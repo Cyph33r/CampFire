@@ -1,4 +1,4 @@
-package com.cyphertech.games.campfire.activities.signup
+package com.cyphertech.games.campfire.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,12 +7,13 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
-import com.cyphertech.games.campfire.activities.login.LogIn
-import com.cyphertech.games.campfire.activities.main.MainActivity
+import com.cyphertech.games.campfire.*
 import com.cyphertech.games.campfire.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.cyphertech.games.campfire.models.LogInSignUpModel
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class SignUp : AppCompatActivity() {
     private val TAG = this::class.simpleName
@@ -25,7 +26,7 @@ class SignUp : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
         mAuth = FirebaseAuth.getInstance()
-        if(mAuth.currentUser != null){
+        if (mAuth.currentUser != null) {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
@@ -52,10 +53,31 @@ class SignUp : AppCompatActivity() {
                 currentUser!!.updateProfile(userProfileChangeRequest {
                     displayName = name
                 })
+                val db = Firebase.firestore
+                val user = hashMapOf(
+                    KEY_USER_DISPLAY_NAME to name,
+                    KEY_USER_EMAIL to currentUser.email,
+                )
+                // Add a new document with a generated ID
+                db.collection(DB_USER_COLLECTION_PATH)
+                    .document(currentUser.uid)
+                    .set(user)
+//                    .addOnSuccessListener { documentReference ->
+//                        Log.wtf(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+//                    }
+//                    .addOnFailureListener { e ->
+//                        Log.wtf(TAG, "Error adding document", e)
+//                    }
+
+
                 val homeIntent = Intent(this, MainActivity::class.java)
                 startActivity(homeIntent)
             } else {
-                Log.w(TAG, "createUserWithEmail:failure. name: $name email: $email password: $password", task.exception)
+                Log.w(
+                    TAG,
+                    "createUserWithEmail:failure. name: $name email: $email password: $password",
+                    task.exception
+                )
                 Toast.makeText(
                     baseContext, "Authentication failed.$name email: $email password: $password",
                     Toast.LENGTH_SHORT

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cyphertech.games.campfire">
+    package="com.cyphertech.games.campfire" >
 
     <application
         android:allowBackup="true"
@@ -8,13 +8,16 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CampFire">
+        android:theme="@style/Theme.CampFire" >
         <activity
-            android:name=".activities.signup.SignUp"
+            android:name=".ChatActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.login.LogIn"
-            android:exported="true">
+            android:name=".activities.SignUp"
+            android:exported="false" />
+        <activity
+            android:name=".activities.LogIn"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.main.MainActivity"
+            android:name=".activities.MainActivity"
             android:exported="false" />
     </application>
 
