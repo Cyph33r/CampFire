@@ -57,6 +57,7 @@ class SignUp : AppCompatActivity() {
                 val user = hashMapOf(
                     KEY_USER_DISPLAY_NAME to name,
                     KEY_USER_EMAIL to currentUser.email,
+                    KEY_UID to currentUser.uid
                 )
                 // Add a new document with a generated ID
                 db.collection(DB_USER_COLLECTION_PATH)
