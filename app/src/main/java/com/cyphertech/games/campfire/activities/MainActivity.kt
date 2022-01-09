@@ -30,6 +30,16 @@ class MainActivity : AppCompatActivity() {
             mAuth.signOut()
             finish()
         }
+        loadUsers()
+        activityMainBinding.textviewUsername.text =
+            mAuth.currentUser?.displayName ?: "null"
+    }
+
+    override fun onBackPressed() {
+        this.finishAffinity()
+    }
+
+    private fun loadUsers() {
         val users = mutableListOf<User>()
         db.collection(DB_USER_COLLECTION_PATH)
             .get()
@@ -49,11 +59,5 @@ class MainActivity : AppCompatActivity() {
             .addOnFailureListener { exception ->
                 Log.d(TAG, "112358 Error getting documents: ", exception)
             }
-        activityMainBinding.textviewUsername.text =
-            mAuth.currentUser?.displayName ?: "null"
-    }
-
-    override fun onBackPressed() {
-        this.finishAffinity()
     }
 }
